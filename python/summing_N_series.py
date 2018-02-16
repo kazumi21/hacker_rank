@@ -12,6 +12,10 @@ def get_user_input():
     return inputs
 
 def modulo(dividend, divisor):
+    print(dividend % divisor)
+    print((dividend % divisor)*dividend)
+    print (((dividend % divisor)*dividend) % divisor)
+    print('\n')
     return ((dividend % divisor)*dividend) % divisor
 
 def expression():
