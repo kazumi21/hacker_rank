@@ -43,11 +43,57 @@ namespace HackerRank
         }
     }
 
+    class Input
+    {
+        public ulong N;
+        public ulong m;
+
+        public Input(ulong N, ulong m)
+        {
+            this.N = N;
+            this.m = m;
+        }
+    }
+
+    public class EasySum
+    {
+        private static Input[] GetUserInput()
+        {
+            int T = int.Parse(Console.ReadLine());
+            Input[] inputs = new Input[T];           
+
+            for (int i=0; i<T; i++)
+            {
+                string[] line = (Console.ReadLine()).Split(new char[0]);
+                inputs[i] = new Input(ulong.Parse(line[0]), ulong.Parse(line[1]));
+            }
+
+            return inputs;
+        }
+
+        private static ulong CalculateSum(ulong N, ulong m)
+        {
+            return m*(m-1)/2*(N/m) + (N%m)*(N%m+1)/2;
+        }
+
+        public static void CalculateSolution()
+        {
+            Input[] inputs = GetUserInput();
+
+            foreach(Input inp in inputs)
+            {
+                Console.WriteLine(CalculateSum(inp.N, inp.m));
+            }
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
-            SummingSeries.CalculateSummingSeries();
+            EasySum.CalculateSolution();
+
+            //SummingSeries.CalculateSummingSeries();
             Console.ReadKey();
         }
     }
